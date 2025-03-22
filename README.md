@@ -1,6 +1,7 @@
 # de-pixelate youtube video gaV-O6NPWrI "Who pays $450 for 2TB?"
 
-![video](gaV-O6NPWrI.webm)
+![video](gaV-O6NPWrI.webm)\
+[Full Video](https://www.youtube.com/watch?v=gaV-O6NPWrI)
 
 saw the video, looked do able.. did it.
 around 4 hour of coding, quality of code "proof of concept".
