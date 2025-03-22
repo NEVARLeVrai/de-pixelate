@@ -1,7 +1,8 @@
 # de-pixelate youtube video gaV-O6NPWrI "Who pays $450 for 2TB?"
 
-![video](gaV-O6NPWrI.webm)\
-[Full Video](https://www.youtube.com/watch?v=gaV-O6NPWrI)
+![input video](v2/frames/0010.png)\
+[input video](gaV-O6NPWrI.webm)\
+[full video](https://www.youtube.com/watch?v=gaV-O6NPWrI)
 
 saw the video, looked do able.. did it.
 around 4 hour of coding, quality of code "proof of concept".
@@ -14,12 +15,12 @@ around 4 hour of coding, quality of code "proof of concept".
 4. extract cells
 5. accumulate the center pixel of the cells over all frames
 
-### Result
-
-![v1](v1/accumulated/VIDEO_2025-03-22T13:18:23+0100.webm)
+![result image](v1/accumulated/0057.png)\
+[result video](v1/accumulated/VIDEO_2025-03-22T13:18:23+0100.webm)
 
 ## V2
 
 same as v1 but does the window position detection automatically
 
-![v2](v1/accumulated/VIDEO_2025-03-22T13:18:23+0100.webm)
+![result image](v2/accumulated/0207.png)\
+[result video](v2/accumulated/VIDEO_2025-03-22T15:03:11+0100.webm)
