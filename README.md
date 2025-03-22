@@ -4,7 +4,7 @@
 [input video](gaV-O6NPWrI.webm)\
 [full video](https://www.youtube.com/watch?v=gaV-O6NPWrI)
 
-saw the video, looked do able.. did it.
+saw the video, looked doable.. did it.\
 around 4 hour of coding, quality of code "proof of concept".
 
 ## V1
