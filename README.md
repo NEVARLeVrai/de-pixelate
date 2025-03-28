@@ -35,7 +35,7 @@ this gave me ~56 frames, i looked through the frames and deleted the frames with
 
 #### finding the window position
 
-since it was only 56 pictures, i did it manually by hand. i used this [template](v1.frames.xcf).\
+since it was only 56 pictures, i did it manually by hand. i used this [template](v1/frames.xcf).\
 i just put a red rectangle around the window.
 
 ![picture with red rectangle](v1/frames/0057.png)
