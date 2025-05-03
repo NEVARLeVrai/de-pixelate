@@ -11,6 +11,20 @@ but never had the opportunity to do it.**
 saw the video, looked doable.. did it.\
 around 4 hour of coding, __quality of code "proof of concept"__.
 
+## License
+
+The following files are dedicated to the public domain using the Creative Commons CC0 1.0 Universal Public Domain Dedication:
+
+*   [`README.md`](README.md)
+*   [`v1/demosaic.py`](v1/demosaic.py)
+*   [`v1/extract_frames.sh`](v1/extract_frames.sh)
+*   [`v2/demosaic.py`](v2/demosaic.py)
+*   [`v2/extract_frames.sh`](v2/extract_frames.sh)
+
+You can find the full text of the CC0 license online at: <https://creativecommons.org/publicdomain/zero/1.0/>
+
+All other files in this repository are under a different, unspecified license. Copyright and related rights are retained by the original authors unless otherwise stated.
+
 ## Explanation
 
 when i saw the video it was immediately clear to me that you might be able restore the original content.
