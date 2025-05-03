@@ -78,7 +78,7 @@ which results in something like this:\
 which then resulted in this picture for the window
 
 ![result image](v1/accumulated/0057.png)\
-[result video](v1/accumulated/VIDEO_2025-03-22T13:18:23+0100.webm)
+[result video](v1/accumulated/output.webm)
 
 this looked very promising, i was pretty sure i could extract the content with more frames.\
 but "finding the window position" would be too much work
@@ -113,7 +113,7 @@ after some try and error with gimp i came to the following procedure (lots of ma
 ### result
 
 ![result image](v2/accumulated/0207.png)\
-[result video](v2/accumulated/VIDEO_2025-03-23T09:33:22+0100.webm)
+[result video](v2/accumulated/output.webm)
 
 very nice!\
 *<small>(i was more or less jumping around like a small child, couldn't believe it worked that good. seeing it with my own eyes was like magic)</small>*
