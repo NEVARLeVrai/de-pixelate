@@ -1,4 +1,4 @@
-# de-pixelate youtube video gaV-O6NPWrI "Who pays $450 for 2TB?"
+# de-pixelate"
 
 This project is an enhancement of the original video depixelation project.
 
