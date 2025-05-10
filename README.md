@@ -1,7 +1,6 @@
-# de-pixelate"
+# de-pixelate youtube video gaV-O6NPWrI "Who pays $450 for 2TB?"
 
 This project is an enhancement of the original video depixelation project.
-Fully automated
 
 ## Modifications
 
@@ -27,8 +26,5 @@ Fully automated
 
 ## License
 
-The files are dedicated to the public domain using the Creative Commons CC0 1.0 Universal Public Domain Dedication:
-
-You can find the full text of the CC0 license online at: <https://creativecommons.org/publicdomain/zero/1.0/>
-
-All other files in this repository are under a different, unspecified license. Copyright and related rights are retained by the original authors unless otherwise stated.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The original project is under CC0 1.0 Universal Public Domain Dedication.
