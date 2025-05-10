@@ -13,15 +13,30 @@ from PIL import Image
 import torch.nn.functional as F
 from torchvision import transforms
 
+# Obtenir le chemin du répertoire où se trouve le script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def create_required_directories():
+    directories = ['frames', 'frames_detected', 'windows', 'mosaics', 'accumulated', 'video-output']
+    for directory in directories:
+        dir_path = os.path.join(SCRIPT_DIR, directory)
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+            print(f"Dossier créé : {dir_path}")
+
+# Création des dossiers nécessaires
+create_required_directories()
+
 mosaic_size = (730/29, 1763/70)
 window_size = (930, 1842)
 
 print('mosaic_size is', mosaic_size)
 
 def load_png_frames(frames_folder):
-    for filename in os.listdir(frames_folder):
+    frames_path = os.path.join(SCRIPT_DIR, frames_folder)
+    for filename in os.listdir(frames_path):
         if filename.lower().endswith(".png"):
-            filepath = os.path.join(frames_folder, filename)
+            filepath = os.path.join(frames_path, filename)
             try:
                 image = Image.open(filepath)
                 image = image.convert("RGBA")
@@ -88,7 +103,7 @@ for name, frame in load_png_frames('frames'):
     image[3,y,x] = 0xFF
 
     image = transform(image)
-    image.save(os.path.join('frames_detected', name))
+    image.save(os.path.join(SCRIPT_DIR, 'frames_detected', name))
 
 gframe = None
 for name, frame in load_png_frames('frames_detected'):
@@ -101,7 +116,7 @@ for name, frame in load_png_frames('frames_detected'):
     print(f"{name} First red pixel found at (x={window_pos[-2]}, y={window_pos[-1]})")
     frame = frame[:, window_pos[-2]:, window_pos[-1]:][:, :window_size[-2], :window_size[-1]]
     image = transform(frame)
-    image.save(os.path.join('windows', name))
+    image.save(os.path.join(SCRIPT_DIR, 'windows', name))
 
     hframe = frame.float().mean(-1, keepdim=True)
     vframe = frame.float().mean(-2, keepdim=True)
@@ -144,7 +159,7 @@ for name, frame in load_png_frames('frames_detected'):
             x += mosaic_size[-1]
         y += mosaic_size[-2]
     image = transform(mframe)
-    image.save(os.path.join('mosaics', name))
+    image.save(os.path.join(SCRIPT_DIR, 'mosaics', name))
 
     if gframe is None:
         gframe = torch.zeros_like(frame, dtype=float)
@@ -162,22 +177,24 @@ for name, frame in load_png_frames('frames_detected'):
     image = image.div(image[3:4]).mul(0xFF)
     image = image.to(torch.uint8)
     image = transform(image)
-    image.save(os.path.join('accumulated', name))
+    image.save(os.path.join(SCRIPT_DIR, 'accumulated', name))
 
 # ---------- Automatic FFmpeg call ----------
 def create_video_from_frames_with_gaps(frames_folder, output_folder, output_video_name, ffmpeg_path, framerate=30):
     # Check if the frames folder exists
-    if not os.path.exists(frames_folder):
-        print(f"The folder {frames_folder} does not exist.")
+    frames_path = os.path.join(SCRIPT_DIR, frames_folder)
+    if not os.path.exists(frames_path):
+        print(f"The folder {frames_path} does not exist.")
         return
 
     # Create the output folder if necessary
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-        print(f"Output folder created: {output_folder}")
+    output_path = os.path.join(SCRIPT_DIR, output_folder)
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+        print(f"Output folder created: {output_path}")
 
     # List and sort the images
-    frames = [f for f in os.listdir(frames_folder) if f.lower().endswith('.png')]
+    frames = [f for f in os.listdir(frames_path) if f.lower().endswith('.png')]
     frames.sort()
 
     if not frames:
@@ -186,17 +203,17 @@ def create_video_from_frames_with_gaps(frames_folder, output_folder, output_vide
 
     # Rename the files to 0001.png, 0002.png...
     for i, file in enumerate(frames):
-        old_path = os.path.join(frames_folder, file)
+        old_path = os.path.join(frames_path, file)
         new_name = f"{i + 1:04d}.png"
-        new_path = os.path.join(frames_folder, new_name)
+        new_path = os.path.join(frames_path, new_name)
         os.rename(old_path, new_path)
         print(f"Renamed {file} to {new_name}")
 
     # Generate the full output path
-    output_video_path = os.path.join(output_folder, output_video_name)
+    output_video_path = os.path.join(output_path, output_video_name)
 
     # Generate the FFmpeg command (without concat, using %04d.png)
-    input_pattern = os.path.join(frames_folder, "%04d.png")
+    input_pattern = os.path.join(frames_path, "%04d.png")
     command = [
         ffmpeg_path,
         "-framerate", str(framerate),   # set input framerate

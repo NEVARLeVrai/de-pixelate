@@ -1,6 +1,22 @@
-# de-pixelate"
+# de-pixelate
 
 This project is an enhancement of the original video depixelation project.
+
+## Versions
+
+### V2 - Original WORK
+- Improved window detection
+- Automatic folder creation
+- Better error handling
+- All paths are now relative to the script location
+- Added video processing status messages
+
+### V3 - For Other Content (TO DO)
+- Enhanced window detection algorithm
+- Improved mosaic pattern recognition
+- Better handling of different video resolutions
+- More robust error handling
+- Progress tracking during processing
 
 ## Modifications
 
@@ -23,6 +39,10 @@ This project is an enhancement of the original video depixelation project.
 2. Run `Create-Frames.py` to extract frames
 3. Run `Remove-Blur.py` for depixelation processing
 4. Results will be available in `video-output/`
+
+### Version Selection
+- Use V2 for the orginal work
+- Use V3 for other contents
 
 ## License
 

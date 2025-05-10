@@ -4,6 +4,7 @@ import shutil
 # Get the path of the folder where the script is located
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
+
 # Folders to exclude
 exclude_dirs = ['video-input', 'video-output']
 
