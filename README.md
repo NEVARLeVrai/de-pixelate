@@ -1,4 +1,4 @@
-# de-pixelate"
+# de-pixelate
 
 This project is an enhancement of the original video depixelation project.
 
